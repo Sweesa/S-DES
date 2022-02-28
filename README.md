@@ -1,5 +1,4 @@
 # S-DES
-A C# implementation of the Simplified version DES. The algorithm was created by Edward Schaefer, Professor of Mathematics at Santa Clara University. It has fewer parameters than DES and is less complex, but is a good resource for unsterstanding the underlying principles in DES.
+A C# implementation of Simplified-DES. The algorithm was created by Edward Schaefer, Professor of Mathematics at Santa Clara University. It has fewer parameters than DES and is less complex, but is a good resource for understanding how DES encrypts text.
 
-This implementation is not an optimal implementation, it was written to be easy to digest with the different elements being seperated into their smallest logical components.
-
+This implementation was not written to be an optimal solution, but rather was made to be easy to follow with the different elements of the alogorithm being separated into small logical components.
