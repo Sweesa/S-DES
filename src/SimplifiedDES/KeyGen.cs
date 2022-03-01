@@ -3,7 +3,7 @@ using System.Collections;
 namespace SimpifiedDES
 {
     /// <summary>
-    /// The KeyGen class contains all methods required to take generate the two permutated keys used in S-DES   
+    /// The KeyGen class contains all methods required to generate the two permutated keys used in S-DES   
     // from an unmodified master key 
     /// </summary>
     public class KeyGen
@@ -51,7 +51,7 @@ namespace SimpifiedDES
             });
         }
         /// <summary>
-        /// The p8 method generates a permutation of the key(from 1 index to 9) BitArray
+        /// The p8 method generates a permutation of the key[1..9] BitArray
         /// </summary>
         /// <param name="key">The 10 bit S-DES key</param>
         /// <returns>An 8 bit modified S-DES key</returns>
@@ -71,7 +71,7 @@ namespace SimpifiedDES
         }
 
         /// <summary>
-        /// Splits a 10 bit BitArray down the middle and shifts the left side and the right side
+        /// Splits a 10 bit BitArray down the middle and shifts the left and right side
         ///  circularly shift times.
         /// </summary>
         /// <param name="key">The 10 bit S-DES key</param>
