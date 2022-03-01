@@ -47,8 +47,8 @@ namespace SimpifiedDES.Functions
         /// <returns>An 8 bit BitArray encrypted by Fk</returns>
         public static BitArray Compute(BitArray bits, BitArray key)
         {
-            BitArray fRes = f(Utils.GetSubsetBitArray(bits, 4, 8), key);
-            BitArray x = xor(Utils.GetSubsetBitArray(bits, 0, 4), fRes);
+            BitArray fRes = f(Utils.GetNibble(bits, 4), key);
+            BitArray x = xor(Utils.GetNibble(bits, 0), fRes);
 
             return new BitArray(new bool[]
             {
@@ -73,8 +73,8 @@ namespace SimpifiedDES.Functions
         {
             BitArray epRes = ep(right);
             BitArray xorRes = xor(epRes, sk);
-            BitArray s0 = sBox(Utils.GetSubsetBitArray(xorRes, 0, 4), S0);
-            BitArray s1 = sBox(Utils.GetSubsetBitArray(xorRes, 4, 8), S1);
+            BitArray s0 = sBox(Utils.GetNibble(xorRes, 0), S0);
+            BitArray s1 = sBox(Utils.GetNibble(xorRes, 4), S1);
             return p4(s0,s1);
         }
         /// <summary>

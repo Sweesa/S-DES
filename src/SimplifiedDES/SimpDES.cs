@@ -65,12 +65,7 @@ namespace SimpifiedDES
             BitArray k2 = keys[1];
             
             // Convert character to binary string
-            // Doesn't put the 0 at the left, stop at the last 1.
             string binary = Convert.ToString((int)c, 2).PadLeft(8, '0');
-            if (binary.Length > 8)
-            {
-                throw new ArgumentException("Wrong charset, characters must be encoded with 8 bit");
-            }
             
             BitArray b = new(8);
             for(int k = 7; k >= 0; k--)
@@ -107,10 +102,7 @@ namespace SimpifiedDES
             BitArray k2 = keys[1];
             
             string binary = Convert.ToString((int)c, 2).PadLeft(8, '0');
-            if (binary.Length != 8)
-            {
-                throw new ArgumentException("Wrong charset, characters must be encoded with 8 bit");
-            }
+
             BitArray b = new(8);
             for(int j= 7; j>=0; j--)
             {

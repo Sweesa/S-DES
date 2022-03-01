@@ -79,34 +79,24 @@ namespace SimpifiedDES
         /// <returns>A circularly shift 10 bit S-DES key</returns>
         private static BitArray circularLeftShift(BitArray key, int shift)
         {
-            BitArray leftShifted = new(10);
+            BitArray leftShiftedBitArr = new(10);
             // shift the left 5 digits left
             for (int i=0; i < 5; i++)
             {
-                int shiftedIndex = i - shift;
-                if (shiftedIndex < 0)
-                {
-                    leftShifted.Set(5 + shiftedIndex, key[i]);
-                }
-                else
-                {
-                    leftShifted.Set(shiftedIndex, key[i]);
-                }
+                int unwrappedShiftIndex = i - shift;
+                int wrappedShiftIndex = unwrappedShiftIndex < 0 ? 4 - Math.Abs(unwrappedShiftIndex + 1) % 5 : unwrappedShiftIndex;
+
+                leftShiftedBitArr.Set(wrappedShiftIndex, key[i]);
             }
             // shift the right 5 digits right
             for (int i=5; i < 10; i++)
             {
-                int shiftedIndex = i - shift;
-                if (shiftedIndex < 5)
-                {
-                    leftShifted.Set(5 + shiftedIndex, key[i]);
-                }
-                else
-                {
-                    leftShifted.Set(shiftedIndex, key[i]);
-                }
+                int unwrappedShiftIndex= i - shift;
+                int wrappedShiftIndex = unwrappedShiftIndex < 5 ? 9 - Math.Abs((unwrappedShiftIndex + 1) - 5 ) % 5 : unwrappedShiftIndex;
+
+                leftShiftedBitArr.Set(wrappedShiftIndex, key[i]);
             }
-            return leftShifted;
+            return leftShiftedBitArr;
         }
     }
 }

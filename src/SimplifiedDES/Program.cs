@@ -13,8 +13,8 @@ namespace SimpifiedDES
             string key = "1101101110";
             string msg = "Simplified DES is simpler than you would think.";
 
-            //Encrypt the msg
-            Console.WriteLine("Message to encode: " + msg + " with key: " + key);
+            //Encrypt the message
+            Console.WriteLine($"Message to encode: {msg} with key: {key}");
             SimpDES sdes = new(key);
             StringBuilder encMsg = new();
             for (int i=0; i<msg.Length;i++)
@@ -22,7 +22,7 @@ namespace SimpifiedDES
                 encMsg.Append(sdes.encrypt(msg[i]));
             }    	
 
-            //Decrypt the msg
+            //Decrypt the message
             Console.WriteLine($"Message to decode {encMsg.ToString()} with key: {key}");
             StringBuilder msgDec = new();
             for (int i=0; i<encMsg.Length;i++)
